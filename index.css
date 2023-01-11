@@ -1,0 +1,36 @@
+body {
+overflow: hidden;
+display:flex;
+justify-content: center;
+align-items: center;
+margin:0;
+background-color: darkgray;
+}
+
+#buttons {
+  display:flex;
+  flex-direction: column;
+}
+
+button {
+  border:none;
+  border-radius: 5px;
+  padding:5px 5px 7px 5px;
+  margin:8px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+#save:hover {
+  background-color: green;
+}
+
+#del:hover {
+  background-color: red;
+}
+#carCanvas {
+  background-color: lightgray;
+}
+#netCanvas {
+  background-color: rgb(0, 0, 0);
+}

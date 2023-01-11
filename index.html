@@ -1,0 +1,27 @@
+<!Doctype Html>
+<head>
+  <title> Self Driving Car</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="buttons">
+    <button id="save" onclick="preserve()">💾</button>
+    <button id="del" onclick="destroy()">🗑️</button>
+ </div>
+
+  <canvas id="carCanvas"></canvas>
+  <canvas id="netCanvas"></canvas>
+
+  <!-- js files: -->
+
+  <script src="network.js"></script>
+  <script src="sensor.js"></script>
+  <script src="utils.js"></script>
+  <script src="road.js"></script>
+  <script src="controls.js"></script>
+  <script src="car.js"></script>
+  <script src="visualizer.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
