@@ -1,3 +1,4 @@
+const rate=0.5;
 class NeuralNetwork {
   constructor(layerData) {
     this.layers=[]; //array of layers
@@ -44,6 +45,24 @@ class NeuralNetwork {
       outputs=Layer.feedForward(outputs,network.layers[i]);
     }
     return outputs;
+  }
+
+  static model(desiredOutputs,sensorReadings,mind) {
+    for (let i=0;i<sensorReadings.length;i++) {
+      mind.layers[0].inputs[i]=sensorReadings[i];
+    }
+
+    //approximate biases
+    for (let i=0;i<desiredOutputs.length;i++) {
+      let sum=0;
+      for (let j=0;j<sensorReadings.length;j++) {
+        sum+=mind.layers[0].weights[j][i]*sensorReadings[j];
+      }
+
+      const approx=(desiredOutputs[i])?-rate:rate;
+      mind.layers[mind.layers.length-1].biases[i]=approx+sum;
+    }
+    console.table(mind);
   }
 }
 
