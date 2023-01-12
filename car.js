@@ -13,14 +13,17 @@ class Car{
 
         this.damaged=false;
 
-        if (controlType!="DUMMY") {
+        if (controlType=="AI"||controlType=="Record") {
           this.sensor=new Sensor(this);
-          this.mind=new NeuralNetwork(
-            [this.sensor.rayCount,4,6,8,16,8,4]
+          this.mind=(controlType=="Record")?new NeuralNetwork(
+            [this.sensor.rayCount,4]
+          ):new NeuralNetwork(
+            [this.sensor.rayCount,6,4]
           );
         }
         this.controls=new Controls(controlType);
         this.useMind=controlType=="AI";
+        this.record=controlType=="Record";
     }
 
     update(roadBorders,traffic) {
@@ -38,6 +41,23 @@ class Car{
             offsets,
             this.mind
           );
+          
+          if(this.record) {
+            const mnd=JSON.parse(JSON.stringify(this.mind));
+            NeuralNetwork.model(
+              [
+                this.controls.forward,
+                this.controls.left,
+                this.controls.right,
+                this.controls.reverse
+              ],
+              offsets,
+              this.mind
+            );
+            if(JSON.stringify(mnd)!=JSON.stringify(this.mind)) {
+              console.table(this.mind.layers[0].biases);
+            }
+          }
 
           if (this.useMind) {
             this.controls.forward=outputs[0];
