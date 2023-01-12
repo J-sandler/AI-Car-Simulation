@@ -21,13 +21,18 @@ button {
   font-size: 30px;
 }
 
-#save:hover {
+#save:hover,
+#generation-size-inc:hover,
+#autoTrain:hover {
   background-color: green;
 }
 
-#del:hover {
+#del:hover,
+#generation-size-dec:hover,
+#record:hover {
   background-color: red;
 }
+
 #carCanvas {
   background-color: lightgray;
 }
