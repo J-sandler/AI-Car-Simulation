@@ -1,4 +1,3 @@
 String representation of good car neural net.
-To implement, set 'const bestChild' equal to 'JSON.parse(
-{"layers":[{"inputs":[0.30014795916227965,0,0,0.12…1117,0.3763553697568345,-0.20402716870340523]]}]}', GenerationSize: '"1005050"', length: 4}
-);
+To implement, set 'const bestChild' equal to: 
+JSON.parse({"layers":[{"inputs":[0.210700319328176,0,0,0,0],"…5064,0.19764082934357305,-0.1315228287493838]]}]}', GenerationSize: '"1005050"', length: 4});
